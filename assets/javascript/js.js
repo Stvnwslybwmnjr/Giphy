@@ -20,28 +20,42 @@ $(document).ready(function () {
 
     let query = "";
     let apikey = "SLlQhIDBP0lpBt1YvK4cmzf9LzsJujSQ";
-    let queryUrl = `https://api.giphy.com/v1/gifs/search?api_key=${apikey}&q=${query}&limit=10&offset=0&lang=en`;
-
+    
+    
     $("#buttons").on("click", ".btn", function(){
+        $("#gifDisplay").empty();
         query = $(this).attr("data-name");
         console.log(query)
+        callGiphy();
     })
 
+    // $.ajax({
+    //     url: "https://api.giphy.com/v1/gifs/search?api_key=SLlQhIDBP0lpBt1YvK4cmzf9LzsJujSQ&q=cars&limit=12&offset=0&lang=en",
+    //     method: "get"
+    // }).then(function(response){
+    //     console.log(response)
+    //     console.log(response.data[0].images.fixed_height.url)
+        
+    // })
 
     function callGiphy() {
         $.ajax(
             {
-                url: queryUrl,
+                url: `https://api.giphy.com/v1/gifs/search?api_key=${apikey}&q=${query}&limit=12&offset=0&lang=en`,
                 method: "GET"
             }
-        ).then(function (response) {
-            console.log(response)
-            for (let i = 0; i < 12; i++) {
-                let 
-            }
-        })
-
-    }
-
+            ).then(function (response) {
+                console.log(response)
+                for (let i = 0; i < 12; i++) {
+                    let gifUrl = response.data[i].images.fixed_height.url;
+                    let gifImg = $("<img>");
+                    gifImg.attr("src", gifUrl);
+                    $("#gifDisplay").append(gifImg)
+                }
+            })
+            
+        }
+        
+        
 
 });
