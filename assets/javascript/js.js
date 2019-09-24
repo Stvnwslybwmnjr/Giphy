@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
     console.log("ready")
 
     let gifsArr = ["cats", "dogs", "birds", "pigs"]
@@ -6,9 +6,8 @@ $(document).ready(function() {
     // ==================create buttons=================
 
     function displayButtons() {
-        $("#buttons").empty();
-        for(let i = 0; i < gifsArr.length; i++) {
-            let button = $(`<button type="button">`)
+        for (let i = 0; i < gifsArr.length; i++) {
+            let button = $(`<button type="button" class="btn">`)
             button.attr("data-name", gifsArr[i]);
             button.text(gifsArr[i]);
             $("#buttons").append(button);
@@ -19,20 +18,30 @@ $(document).ready(function() {
 
     displayButtons();
 
-   let apikey = "SLlQhIDBP0lpBt1YvK4cmzf9LzsJujSQ";
-   let queryUrl = `https://api.giphy.com/v1/gifs/search?api_key=${apikey}&q=${query}&limit=10&offset=0&lang=en`;
+    let query = "";
+    let apikey = "SLlQhIDBP0lpBt1YvK4cmzf9LzsJujSQ";
+    let queryUrl = `https://api.giphy.com/v1/gifs/search?api_key=${apikey}&q=${query}&limit=10&offset=0&lang=en`;
 
-   function callGiphy() {
-       $.ajax(
-           {
-               url: queryUrl,
-               method: "GET"
-           }
-       ).then(function(response) {
-           console.log(response)
-       })
+    $("#buttons").on("click", ".btn", function(){
+        query = $(this).attr("data-name");
+        console.log(query)
+    })
 
-   }
+
+    function callGiphy() {
+        $.ajax(
+            {
+                url: queryUrl,
+                method: "GET"
+            }
+        ).then(function (response) {
+            console.log(response)
+            for (let i = 0; i < 12; i++) {
+                let 
+            }
+        })
+
+    }
 
 
 });
