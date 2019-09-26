@@ -1,0 +1,16 @@
+.btn, form, input {
+    font-family: 'Luckiest Guy', cursive;
+}
+
+img {
+    max-width: 99%;
+}
+
+.btn {
+    margin: 5px;
+    background-color: gold;
+}
+
+#createbtn {
+    background-color: red
+}
