@@ -50,6 +50,8 @@ $(document).ready(function () {
                 let gifUrl = response.data[i].images.fixed_height.url;
                 let gifImg = $("<img>");
                 gifImg.attr("src", gifUrl);
+                gifImg.attr("data-animate", response.data[i].images.fixed_height.url);
+                    gifImg.attr("data-still", response.data[i].images.fixed_height_still.url)
                 $("#gifDisplay").append(gifImg)
             }
         })
@@ -69,6 +71,7 @@ $(document).ready(function () {
 
     })
 
+    
 
 
 });
