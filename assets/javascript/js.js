@@ -48,12 +48,22 @@ $(document).ready(function () {
             console.log(response)
             for (let i = 0; i < 12; i++) {
                 let gifUrl = response.data[i].images.fixed_height.url;
+                let rating = response.data[i].rating.toUpperCase();
+                console.log(rating);
                 let gifImg = $("<img class='gif'>");
                 gifImg.attr("src", gifUrl);
                 gifImg.attr("data-animate", response.data[i].images.fixed_height.url);
                 gifImg.attr("data-still", response.data[i].images.fixed_height_still.url)
                 gifImg.attr("data-state", "animate")
-                $("#gifDisplay").append(gifImg)
+               let displayRating = $("<p class='rate'>");
+                displayRating.text("Rated: " + rating);
+                let gifDiv = $("<div class='gifbox'>")
+
+                $(gifDiv).append(displayRating);
+                $(gifDiv).append(gifImg);
+
+                $("#gifDisplay").append(gifDiv);
+               
             }
         })
 

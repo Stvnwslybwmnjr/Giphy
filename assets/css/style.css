@@ -1,5 +1,14 @@
-.btn, form, input {
+.btn, form, input, .rate {
     font-family: 'Luckiest Guy', cursive;
+}
+
+p {
+    width: max-content;
+    margin: 0px;
+}
+.gifbox {
+    
+    display: inline-block
 }
 
 img {
