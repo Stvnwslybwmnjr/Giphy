@@ -73,13 +73,14 @@ $(document).ready(function () {
 
     $(document).on("click", "#createbtn", function(event){
         event.preventDefault()
+            if($("#input").val() !== ""){
         query = $("#input").val();
 
         let button = $(`<button type="button" class="btn">`)
             button.attr("data-name", query);
             button.text(query);
             $("#buttons").append(button);
-
+        }
     })
 
     $("#gifDisplay").on("click", ".gif", function() {
